@@ -1,4 +1,10 @@
+import junitparams.Parameters;
 import org.junit.runner.RunWith;
+import org.junit.Test;
+import org.junit.runners.Parameterized;
+import junitparams.JUnitParamsRunner;
+
+import static org.junit.Assert.assertEquals;
 
 @RunWith(JUnitParamsRunner.class)
 public class MoneyParameterizedTest {
@@ -8,12 +14,14 @@ public class MoneyParameterizedTest {
                 new Object[] {20, "EUR"}
         };
     }
+
     @Test
     @Parameters(method = "getMoney")
-    public void constructorShouldSetAmountAndCurrency(
-            int amount, String currency) {
+    public void constructorShouldSetAmountAndCurrency(int amount, String currency) {
         Money money = new Money(amount, currency);
         assertEquals(amount, money.getAmount());
         assertEquals(currency, money.getCurrency());
+
+        //ssssssssssssssssssssss
     }
 }
